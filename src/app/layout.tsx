@@ -19,7 +19,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en">
       <body className="bg-black text-white">
         <Container>
-          <Navbar />
+          {pathname !== "/login" && pathname !== "/signup" && <Navbar />} {/* Render Navbar only on pages other than login and signup */}
           {pathname === "/" && (
             <> {/* Render Hero and JournalTypes only on the landing page */}
               <Hero />

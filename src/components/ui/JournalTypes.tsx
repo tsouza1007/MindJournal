@@ -14,10 +14,10 @@ const Card = ({
   description: string;
 }) => {
   return (
-    <div className="bg-wblack text-white rounded-xl shadow-md p-6 w-full max-w-xs transition hover:scale-105 duration-300">
+    <div className="bg-white/10 backdrop-blur-md text-white rounded-xl shadow-lg p-6 w-full max-w-xs transition hover:scale-105 duration-300 border border-white/20">
       <div className="text-2xl mb-4">{icon}</div>
       <h3 className="text-lg font-semibold mb-2">{title}</h3>
-      <p className="text-sm text-gray-600">{description}</p>
+      <p className="text-sm text-gray-300">{description}</p>
     </div>
   );
 };
