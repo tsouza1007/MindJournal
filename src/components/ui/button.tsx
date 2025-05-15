@@ -40,20 +40,23 @@ function Button({
   variant,
   size,
   asChild = false,
+  onClick, // Added onClick prop
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
-    asChild?: boolean
+    asChild?: boolean;
+    onClick?: () => void; // Optional click handler
   }) {
-  const Comp = asChild ? Slot : "button"
+  const Comp = asChild ? Slot : "button";
 
   return (
     <Comp
       data-slot="button"
       className={cn(buttonVariants({ variant, size, className }))}
+      onClick={onClick} // Pass the onClick handler
       {...props}
     />
-  )
+  );
 }
 
 export { Button, buttonVariants }
