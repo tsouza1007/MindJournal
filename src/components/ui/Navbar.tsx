@@ -18,7 +18,7 @@ const Navbar1 = () => {
         <div className="flex items-center gap-4">
           {/* Desktop Buttons */}
           <div className="hidden md:flex gap-4">
-            <Link href="/login">
+            <Link href="/auth/login">
               <Button variant="secondary">Login</Button>
             </Link>
             <Button variant="outline">Signup</Button>
@@ -32,7 +32,7 @@ const Navbar1 = () => {
               </SheetTrigger>
               <SheetContent className="bg-black text-white">
                 <div className="flex flex-col gap-2 mt-8"> {/* Adjusted margin-top to move buttons below the cross mark */}
-                  <Link href="/login">
+                  <Link href="/auth/login">
                     <Button variant="secondary" className="w-full text-sm py-2">Login</Button> {/* Made buttons smaller with text-sm and py-2 */}
                   </Link>
                   <Button variant="outline" className="w-full text-sm py-2">Signup</Button> {/* Made buttons smaller with text-sm and py-2 */}
