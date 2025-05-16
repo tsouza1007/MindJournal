@@ -31,11 +31,11 @@ const Navbar1 = () => {
                 <Menu className="text-white cursor-pointer" />
               </SheetTrigger>
               <SheetContent className="bg-black text-white">
-                <div className="flex flex-col gap-2 mt-4">
+                <div className="flex flex-col gap-2 mt-8"> {/* Adjusted margin-top to move buttons below the cross mark */}
                   <Link href="/login">
-                    <Button variant="secondary">Login</Button>
+                    <Button variant="secondary" className="w-full text-sm py-2">Login</Button> {/* Made buttons smaller with text-sm and py-2 */}
                   </Link>
-                  <Button variant="outline">Signup</Button>
+                  <Button variant="outline" className="w-full text-sm py-2">Signup</Button> {/* Made buttons smaller with text-sm and py-2 */}
                 </div>
               </SheetContent>
             </Sheet>
