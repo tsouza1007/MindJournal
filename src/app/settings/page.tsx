@@ -2,9 +2,11 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { useContext } from "react";
+import { ThemeContext } from "@/app/layout"; // Import ThemeContext
 
 export default function SettingsPage() {
-  const [themeMode, setThemeMode] = useState(false);
+  const { theme, toggleTheme } = useContext(ThemeContext); // Use theme and toggleTheme from context
   const [notifications, setNotifications] = useState({
     daily: false,
     weekly: false,
@@ -13,7 +15,7 @@ export default function SettingsPage() {
   const [notificationTime, setNotificationTime] = useState("09:00");
 
   return (
-    <div className="bg-black text-white min-h-screen p-6">
+    <div className={theme === "dark" ? "bg-black text-white" : "bg-white text-black"}> {/* Apply theme classes */}
       <header className="flex justify-between items-center mb-10">
         <h1 className="text-3xl font-bold">⚙️ Settings</h1>
         <div className="text-2xl">👤</div>
@@ -30,8 +32,8 @@ export default function SettingsPage() {
           <input
             type="checkbox"
             className="w-5 h-5"
-            checked={themeMode}
-            onChange={() => setThemeMode(!themeMode)}
+            checked={theme === "dark"}
+            onChange={() => toggleTheme(theme === "dark" ? "light" : "dark")}
           />
         </div>
       </section>
@@ -88,17 +90,12 @@ export default function SettingsPage() {
 
           <div className="mt-4">
             <label className="block mb-2">Notification Time</label>
-            <select
+            <input
+              type="time"
               className="bg-gray-800 text-white p-2 rounded w-full"
               value={notificationTime}
               onChange={(e) => setNotificationTime(e.target.value)}
-            >
-              {["07:00", "08:00", "09:00", "10:00", "11:00"].map((time) => (
-                <option key={time} value={time}>
-                  {time}
-                </option>
-              ))}
-            </select>
+            />
           </div>
         </div>
       </section>

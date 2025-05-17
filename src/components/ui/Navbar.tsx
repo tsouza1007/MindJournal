@@ -5,7 +5,12 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import Link from "next/link";
 
-const Navbar1 = () => {
+interface NavbarProps {
+  toggleTheme: (newTheme: string) => void;
+  theme: string;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ toggleTheme, theme }) => {
   return (
     <nav className="col-span-12 rounded-xl px-6 py-2 mt-4 shadow-lg">
       <div className="flex items-center justify-between w-full">
@@ -22,6 +27,13 @@ const Navbar1 = () => {
               <Button variant="secondary">Login</Button>
             </Link>
             <Button variant="outline">Signup</Button>
+            {/* Theme Toggle */}
+            <button
+              onClick={() => toggleTheme(theme === "dark" ? "light" : "dark")}
+              className="p-2 rounded bg-gray-700 text-white"
+            >
+              {theme === "dark" ? "🌞 Light Mode" : "🌙 Dark Mode"}
+            </button>
           </div>
 
           {/* Mobile Hamburger Menu */}
@@ -36,6 +48,13 @@ const Navbar1 = () => {
                     <Button variant="secondary" className="w-full text-sm py-2">Login</Button> {/* Made buttons smaller with text-sm and py-2 */}
                   </Link>
                   <Button variant="outline" className="w-full text-sm py-2">Signup</Button> {/* Made buttons smaller with text-sm and py-2 */}
+                  {/* Theme Toggle */}
+                  <button
+                    onClick={() => toggleTheme(theme === "dark" ? "light" : "dark")}
+                    className="p-2 rounded bg-gray-700 text-white"
+                  >
+                    {theme === "dark" ? "🌞 Light Mode" : "🌙 Dark Mode"}
+                  </button>
                 </div>
               </SheetContent>
             </Sheet>
@@ -46,4 +65,4 @@ const Navbar1 = () => {
   );
 };
 
-export default Navbar1;
+export default Navbar;
